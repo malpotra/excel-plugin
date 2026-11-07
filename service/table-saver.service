@@ -1,0 +1,17 @@
+# Ubuntu: runs the server after login and restarts it if it dies.
+#  1. Replace the node path (run `which node`) and the project path below.
+#     %h means your home folder.
+#  2. mkdir -p ~/.config/systemd/user && cp this file there
+#  3. systemctl --user daemon-reload && systemctl --user enable --now table-saver
+#  Logs: journalctl --user -u table-saver
+[Unit]
+Description=Table Saver local server
+
+[Service]
+ExecStart=/usr/bin/node %h/table-saver-addin/server.js
+WorkingDirectory=%h/table-saver-addin
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

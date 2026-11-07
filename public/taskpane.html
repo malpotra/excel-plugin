@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Table Saver</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    body { font-family: -apple-system, "Segoe UI", sans-serif; margin: 0; padding: 16px; font-size: 14px; color: #222; }
+    h1 { font-size: 16px; margin: 0 0 4px; }
+    p.hint { color: #666; margin: 0 0 14px; font-size: 12px; line-height: 1.4; }
+    button { display: block; width: 100%; padding: 10px; margin-bottom: 8px; font-size: 14px; border: 1px solid #217346; background: #217346; color: #fff; border-radius: 4px; cursor: pointer; }
+    button.secondary { background: #fff; color: #217346; }
+    button:disabled { opacity: .5; cursor: default; }
+    #status { margin-top: 12px; padding: 8px; border-radius: 4px; font-size: 12px; word-break: break-all; display: none; }
+    #status.ok { display: block; background: #e6f4ea; color: #0b6b2b; }
+    #status.err { display: block; background: #fce8e6; color: #a50e0e; }
+    code { font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Table Saver</h1>
+  <p class="hint">
+    Reads the active sheet: table name in <code>A1</code>, owner in <code>B2</code>,
+    header row in row 3, data from row 4. Saves to <code>&lt;base&gt;/&lt;Owner&gt;/table.*</code>.
+  </p>
+  <button id="btn-pdf">Save as PDF</button>
+  <button id="btn-xlsx" class="secondary">Save as Excel</button>
+  <div id="status"></div>
+  <script src="taskpane.js"></script>
+</body>
+</html>
